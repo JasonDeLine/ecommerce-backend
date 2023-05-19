@@ -23,4 +23,5 @@ Tag.init(
   }
 );
 
+// export statement
 module.exports = Tag;

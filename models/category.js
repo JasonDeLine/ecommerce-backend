@@ -1,8 +1,10 @@
+// dependencies
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Category extends Model { }
 
+// define category data types
 Category.init(
     {
         id: {
@@ -24,4 +26,5 @@ Category.init(
     }
 );
 
-modeule.exports = Category;
+// export statement
+module.exports = Category;

@@ -1,8 +1,10 @@
+// dependencies
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Product extends Model { }
 
+// define product data types
 Product.init(
     {
         id: {
@@ -38,3 +40,6 @@ Product.init(
         modelName: 'product',
     }
 );
+
+// export statement
+module.exports = Product;
