@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Category = require('../models/Category.js');
+const Category = require('../models/category.js');
 const Product = require('../models/product.js');
 
 
