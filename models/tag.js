@@ -23,5 +23,9 @@ Tag.init(
   }
 );
 
+module.exports = (models) => {
+  Tag.belongsToMany(models.Product, { through: 'product_tags' });
+};
+
 // export statement
 module.exports = Tag;
