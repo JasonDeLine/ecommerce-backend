@@ -15,13 +15,15 @@ router.get('/tags', async (req, res) => {
 
 // get tag by ID
 router.get('/tags/:id', async (req, res) => {
-    try {
-        const tag = await Tag.findByPk(req.params.id, { include: [Product] });
-        res.json(tag);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
-    }
+  try {
+    const tag = await Tag.findByPk(req.params.id, {
+      include: [{ model: Product, as: 'products' }], // Specify the association and alias
+    });
+    res.json(tag);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
 });
 
 // create new tag

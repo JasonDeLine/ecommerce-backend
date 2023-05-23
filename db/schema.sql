@@ -6,18 +6,12 @@ USE estore_db;
 DROP TABLE IF EXISTS product_tags;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS tags;
-DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS category;
 
 -- Create the categories table
-CREATE TABLE categories (
+CREATE TABLE category (
   id INT AUTO_INCREMENT PRIMARY KEY,
   category_name VARCHAR(50) NOT NULL
-);
-
--- Create the tags table
-CREATE TABLE tags (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  tag_name VARCHAR(50)
 );
 
 -- Create the products table
@@ -27,7 +21,13 @@ CREATE TABLE products (
   price DECIMAL(10, 2) NOT NULL,
   stock INT NOT NULL DEFAULT 10,
   category_id INT,
-  FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE CASCADE
+  FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE
+);
+
+-- Create the tags table
+CREATE TABLE tags (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  tag_name VARCHAR(50)
 );
 
 -- Create the product_tags table
@@ -38,3 +38,4 @@ CREATE TABLE product_tags (
   FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE,
   FOREIGN KEY (tag_id) REFERENCES tags (id) ON DELETE CASCADE
 );
+

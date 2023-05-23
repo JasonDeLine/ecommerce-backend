@@ -13,10 +13,10 @@ router.get('/products', async (req, res) => {
 });
 
 // get product by ID - get 
-router.get('products/:id', async (req, res) => {
+router.get('/products/:id', async (req, res) => {
     try {
         const product = await Product.findByPk(req.params.id, {
-            include: [Tag],
+            include: [{ model: Tag, as: 'tags' }],
         });
         res.json(product);
     } catch (err) {
@@ -39,7 +39,7 @@ router.post('/products', async (req, res) => {
 // update a product - put
 router.put('/products/:id', async (req, res) => {
     try {
-        const product = await Product.update({
+        const product = await Product.update(req.body, {
             where: { id: req.params.id },
         });
         res.json(product);

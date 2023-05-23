@@ -1,5 +1,5 @@
 -- Insert categories
-INSERT INTO categories (category_name)
+INSERT INTO category (category_name)
 VALUES ('Electronics'), ('Clothing'), ('Home');
 
 -- Insert tags
