@@ -23,7 +23,6 @@ Product.init(
         isDecimal: true
       }
     },
-    // Add other product columns as needed
   },
   {
     sequelize,
