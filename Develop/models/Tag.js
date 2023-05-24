@@ -5,23 +5,24 @@ class Tag extends Model {}
 
 Tag.init(
   {
+    // Define columns
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     tag_name: {
-      type: DataTypes.STRING,
-    },
+      type: DataTypes.STRING
+    }
   },
   {
     sequelize,
     timestamps: false,
-    modelName: 'tag',
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'tag'
   }
 );
 
-
-
-// export statement
 module.exports = Tag;
